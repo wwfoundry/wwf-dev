@@ -193,6 +193,16 @@ padding-top:0;
 margin-top:0;
 }
 
+/****New Slide Method**/
+
+.slide{
+	width:100%;
+	height:100%;
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+
 /****full slide attribution****/
 
 #full_attribution{
@@ -345,25 +355,16 @@ margin-top:0;
 /***THUMBNAIL GALLERY****/
 
 #thumbnail_gallery{
+	display:flex;
 	justify-content: center;
-	display:none;
 	flex-direction:row;
 	overflow-x:scroll;
 	overflow-y:visible;
 	background-color:unset;
-	position:absolute;
-	bottom:0;
-	left:0;
-	right:0;
-	width:100%;
-	margin-left:auto;
-	margin-right:auto;
-	height:35px;
-	transition:height, opacity ease-in-out .25s;
 	cursor:pointer;
 }
 
-#thumbnail_gallery:before{
+/*#thumbnail_gallery:before{
 	content:'';
 	background-image:url('reveal.svg');
 	width:25px;
@@ -376,7 +377,7 @@ margin-top:0;
 	margin-right:auto;
 	opacity:1!important;
 	display:block;
-}
+}*/
 
 #thumbnail_gallery:hover{
 	height:150px;

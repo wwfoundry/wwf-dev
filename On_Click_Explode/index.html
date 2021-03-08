@@ -12,6 +12,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"></script>
 <script src="slides.js"></script>
 <script src="scripts.js"></script>
+<!--[if lte IE 8]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
 </head>
 <body>
 	<div id="side_menu_wrapper">
@@ -186,14 +187,11 @@
 					</svg>
 				</a>
 			</div>
-			<div id="thumbnail_gallery">
-				
-			</div>
 		</div>
 		<div id="info_wrapper">
 				<div id="prod_description">
 					<p id="prod_heading" class="title"></p>
-					<p></p>
+					<div id="thumbnail_gallery"></div>
 				</div>
 				<div id="attribution">
 					<div id="artist" class="info_header attrib title"></div>
