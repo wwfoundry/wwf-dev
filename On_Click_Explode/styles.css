@@ -156,12 +156,37 @@ header{
 	width:calc(100%);
 	height:calc(100%);
 	display:block;
+	position:relative;
 }
 
 .slide{
+	background-size:cover;
+	background-position: center;
+	background-repeat:no-repeat;
 	object-fit: cover;
+	width:0%;
+	height:100%;
+	transition: width ease-in-out 1s;
+	position:absolute;
+}
+
+.current{
+	top:0;
+	bottom:0;
 	width:100%;
 	height:100%;
+}
+
+.next, .prev{
+	width:0%;
+}
+
+.next{
+	right:0;
+}
+
+.prev{
+	left:0;
 }
 
 #info_wrapper{
@@ -193,16 +218,6 @@ padding-top:0;
 margin-top:0;
 }
 
-/****New Slide Method**/
-
-.slide{
-	width:100%;
-	height:100%;
-	background-size:cover;
-	background-repeat:no-repeat;
-	background-position:center;
-}
-
 /****full slide attribution****/
 
 #full_attribution{
@@ -214,6 +229,7 @@ margin-top:0;
 	display:none;
 	color:white;
 	border-bottom:none;
+	z-index:100;
 }
 
 #full_artist{
@@ -355,16 +371,25 @@ margin-top:0;
 /***THUMBNAIL GALLERY****/
 
 #thumbnail_gallery{
-	display:flex;
 	justify-content: center;
+	display:none;
 	flex-direction:row;
 	overflow-x:scroll;
 	overflow-y:visible;
 	background-color:unset;
+	position:absolute;
+	bottom:0;
+	left:0;
+	right:0;
+	width:100%;
+	margin-left:auto;
+	margin-right:auto;
+	height:35px;
+	transition:height, opacity ease-in-out .25s;
 	cursor:pointer;
 }
 
-/*#thumbnail_gallery:before{
+#thumbnail_gallery:before{
 	content:'';
 	background-image:url('reveal.svg');
 	width:25px;
@@ -377,7 +402,7 @@ margin-top:0;
 	margin-right:auto;
 	opacity:1!important;
 	display:block;
-}*/
+}
 
 #thumbnail_gallery:hover{
 	height:150px;

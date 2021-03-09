@@ -12,9 +12,6 @@ $(document).ready(function (){
 	yearFull = $('#full_year'),
 	materialFull = $('#full_material');
 
-	move(0);
-
-
 	$("#hamburger").on("click", function(){
 
 		$('#side_menu_wrapper').animate({marginRight: '100vw'}, 500);
@@ -161,6 +158,8 @@ for (i = 0; i < slide_pulls.length; i++){
 
 }
 
+move(0);
+
 var i = 0;
 
 $('#arrow_left').on("click", function(s){
@@ -187,6 +186,11 @@ function trans_slide(direction){
 				if (direction < 1 && !0){
 
 					i = (i-1);
+
+					if(i < 0 ){
+						i = slide_pulls.length - 1;
+					}
+
 					move(i, r = 0);
 				}
 
@@ -200,18 +204,22 @@ function trans_slide(direction){
 	}
 }
 
+
 function move(e){
 
-	for (i=0, i < slide_pulls.length, i++){
+	var slide = $(".slide");
 
-		var slides = $('.slide');
+	slide.eq(e).addClass('current');
 
-		var current_slide = slides.attr('slide-id');
+	slide.eq(e - 1).addClass('prev');
 
-		if (current_slide = e){
-			(this).addClass('current_slide');
-		}
-	}
+	slide.eq(e + 1).addClass('next');
+
+	slide.not( slide.eq(e) ).removeClass('current');
+
+	slide.not( slide.eq(e - 1) ).removeClass('prev');
+
+	slide.not( slide.eq(e + 1) ).removeClass('next');
 
 	header.html(slide_pulls[e].header);
 
