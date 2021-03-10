@@ -471,6 +471,7 @@ textarea{
 	display:flex;
 	flex-direction:column;
 	padding-bottom:5px;
+	padding-right:10px;
 }
 
 .work_year{
@@ -481,8 +482,15 @@ textarea{
 }
 
 .thumbnail{
-	width: 100px;
-    height: 50px;
+	width: 190px;
+    height: 80px;
 	background-size:cover;
 	background-position: center;
+}
+
+.year_grouping{
+	display:flex;
+	width:100%;
+	flex-direction:row;
+	flex-wrap:wrap;
 }

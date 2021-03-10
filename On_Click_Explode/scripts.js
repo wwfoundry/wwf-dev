@@ -120,31 +120,7 @@ $('#slides').on("click", function exitExplode(){
 
 });
 
-// //Project Archive
-
-// var i;
-
-// for (i = 0; i < slide_pulls.length; i++){
-
-// 	var work_year = slide_pulls[i].year;
-
-// 	document.getElementById("archive_menu").innerHTML += "<p class='work_year'>" + work_year + "</p><a class='filter archive_year' class='filter' slide-id='" + i + "' year-id='" + work_year + "'><div class='thumbnail' style=\"background-image:url('" + slide_pulls[i].image1 + "')\"></div><p class='thumnail_caption'>" + slide_pulls[i].work + "</p></a>"
-
-// }
-
-// $('.filter').on("click", function(){
-
-// 	var slideID = $(this).attr('slide-id');
-
-// 	var r = true;
-
-// 	move(slideID, r);
-
-// 	console.log(slideID);
-
-// });
-
-//Ajax Slide Change
+//Slide Change
 
 	//Load all image slides
 
@@ -152,9 +128,13 @@ var i;
 
 for (i = 0; i < slide_pulls.length; i++){
 
+	var slide_parent = document.getElementById("slide_container");
+
+	slide_parent.innerHTML += "<div class='slide' slide-id='" + i + "' style=\"background-image:url('" + slide_pulls[i].image1 + "')\"></div>"
+
 	var work_year = slide_pulls[i].year;
 
-	document.getElementById("slide_container").innerHTML += "<div class='slide' slide-id='" + i + "' style=\"background-image:url('" + slide_pulls[i].image1 + "')\"></div>"
+	// document.getElementById("slide_container").innerHTML += "<div class='slide' slide-id='" + i + "' style=\"background-image:url('" + slide_pulls[i].image1 + "')\"></div>"
 
 }
 
@@ -176,6 +156,8 @@ $('#arrow_right').on("click", function(s){
 
 	});
 
+var cachedMove;
+
 function trans_slide(direction){
 	if( !($('#side_menu_wrapper').hasClass('active')) ) {
 
@@ -192,24 +174,27 @@ function trans_slide(direction){
 					}
 
 					move(i, r = 0);
+
 				}
 
 				if (direction >= 1 && !0){
 
 					i = (i+1)%slide_pulls.length;
 					move(i, r = 0);
+
 				}
 		}
 
 	}
 }
 
-
 function move(e){
 
 	var slide = $(".slide");
 
 	slide.eq(e).addClass('current');
+
+	var newMove = cachedMove;
 
 	slide.eq(e - 1).addClass('prev');
 
@@ -220,6 +205,20 @@ function move(e){
 	slide.not( slide.eq(e - 1) ).removeClass('prev');
 
 	slide.not( slide.eq(e + 1) ).removeClass('next');
+
+	//Logo Contrast
+
+	// changeLogo = slide_pulls[e].logo_contrast;
+
+	// if (slide_pulls[e].logo_contrast = 'dark'){
+
+	// 	$('.st1').css('fill', 'black');
+
+	// } else {
+
+	// 	$('.st1').css('fill', 'white');
+
+	// }
 
 	header.html(slide_pulls[e].header);
 
@@ -232,6 +231,44 @@ function move(e){
 	workFull.html(slide_pulls[e].work);
 	yearFull.html(slide_pulls[e].year);
 	materialFull.html(slide_pulls[e].material);
+
+	console.log(slide_pulls[e].thumbs.length);
+
+	$('.thumbnail').remove();
+
+	document.getElementById("thumbnail_gallery").innerHTML = "<a class='active_thumb thumbnail' style=\"background-image:url('" + slide_pulls[e].image1 + "')\"></a>"
+
+	for (var t = 0; t < slide_pulls[e].thumbs.length; t++){
+
+		document.getElementById("thumbnail_gallery").innerHTML += "<a class='thumbnail' style=\"background-image:url('" + slide_pulls[e].thumbs[t] + "')\"></a>"
+
+		console.log(slide_pulls[e].thumbs[t]);
+
+	}
+
+//THUMBNAIL GALLERY
+
+$('.thumbnail').on("click", function(s){
+
+	var thumb_click = $(this);
+
+	$('.current').animate({opacity: '0'}, 400, function(){
+
+		thumb_click.addClass('active_thumb');
+
+		$('.thumbnail').not( thumb_click ).removeClass('active_thumb');
+
+		var thumb_background = thumb_click.css('background-image');
+
+		$('div .current').css('background-image', thumb_background);
+
+		$('.current').animate({opacity: '1'}, 400);
+
+	 });
+
+	s.stopPropagation();
+
+});
 
 }
 
@@ -277,8 +314,6 @@ var markerIcon = L.icon({
 	iconAnchor: [0,5]
 });
 
-// L.marker([46.06362892338259, -118.36210206931129], {icon: markerIcon}).addTo(map);
-
 var locations = [
   ["Main Campus", 46.06362892338259, -118.36210206931129],
   ["Crating Facility", 46.07190026554796, -118.35182193896028],
@@ -292,6 +327,5 @@ for (var i = 0; i < locations.length; i++) {
     .bindPopup(locations[i][0])
     .addTo(map);
 }
-
 
 });
