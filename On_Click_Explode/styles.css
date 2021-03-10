@@ -36,10 +36,6 @@ header{
 	display:block;
 }
 
-.st1{
-	fill: white;
-}
-
 #menu{
 	width:15%;
 	height:100%;
@@ -52,10 +48,10 @@ header{
 	display:block;
 }
 
-#ham_svg{
+/*#ham_svg{
 	stroke:white;
 	stroke-width:5;
-}
+}*/
 
 .menu_item{
 	width:35px;
@@ -77,6 +73,10 @@ header{
 
 .social{
 	
+}
+
+.fill_change{
+	fill:white;
 }
 
 /****page content****/
@@ -327,6 +327,7 @@ margin-top:0;
 
 #slide_reveal{
 	stroke-width:7px;
+	fill: white !important;
 }
 
 .reduced{
