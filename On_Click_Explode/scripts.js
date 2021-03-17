@@ -59,10 +59,11 @@ var pause_slideshow = false;
 
 var trigger = 'inactive';
 
+var slide_parent = document.getElementById("slide_container");
+
 $('#content').on("click", function(){ explode(); });
 
 function explode(){
-
 
 	if( !($('#side_menu_wrapper').hasClass('active')) ) {
 	
@@ -87,6 +88,8 @@ function explode(){
 			pause_slideshow = true;
 
 			trigger = 'active';
+
+			$('.fill_change').addClass('blackFill');
 
 		}
 
@@ -116,9 +119,9 @@ function exitExplode(){
 
 		$('#full_attribution').addClass('fullscreen');
 
-		pause_slideshow = false;
+		$('.fill_change').removeClass('blackFill');
 
-		trigger = 'inactive';
+		pause_slideshow = false;
 
 	}
 
@@ -126,34 +129,50 @@ function exitExplode(){
 
 //Logo Color
 
-if ( trigger = 'active' ){
-
-$('.fill_change').css('fill', 'black');
-console.log('complete');
-
-}
-
 var	color = slide_pulls.map(function(a) {return a.color;});
 
 //Slide Change
 
-	//Load all image slides
+//Load all image slides
 
 var i;
 
 for (i = 0; i < slide_pulls.length; i++){
 
-	var slide_parent = document.getElementById("slide_container");
+	var slideElements = document.createElement('div');
 
-	slide_parent.innerHTML += "<div class='slide' slide-id='" + i + "' style=\"background-image:url('" + slide_pulls[i].image1 + "')\"></div>"
+	slideElements.innerHTML += "<div class='slide' slide-id='" + i + "' style=\"background-image:url('" + slide_pulls[i].image1 + "')\"></div>"
+
+	slide_parent.appendChild(slideElements);
+
+	// slide_parent.innerHTML += "<div class='slide' slide-id='" + i + "' style=\"background-image:url('" + slide_pulls[i].image1 + "')\"></div>"
 
 	var work_year = slide_pulls[i].year;
-
-	// document.getElementById("slide_container").innerHTML += "<div class='slide' slide-id='" + i + "' style=\"background-image:url('" + slide_pulls[i].image1 + "')\"></div>"
 
 }
 
 move(0);
+
+goSlide();
+
+var slideshow;
+
+//Slideshow
+
+	function goSlide(){ 
+
+		slideshow = window.setInterval(function(){
+
+		if( !pause_slideshow ){
+
+			trans_slide(1);
+		}
+
+	}, 4000);
+
+};
+
+//Nav arrows
 
 var i = 0;
 
@@ -162,12 +181,18 @@ $('#arrow_left').on("click", function(s){
 	trans_slide(-1);
 	s.stopPropagation();
 
+	clearInterval(slideshow);
+	goSlide();
+
 	});
 
 $('#arrow_right').on("click", function(s){
 
 	trans_slide(1);
 	s.stopPropagation();
+
+	clearInterval(slideshow);
+	goSlide();
 
 	});
 
@@ -223,19 +248,13 @@ function move(e){
 
 	//Logo Contrast
 
-	console.log(color[e]);
-
 	if (color[e] === '0'){
 
 		$('.fill_change').css('fill', 'black');
 
-		console.log('dark');
-
 	} else {
 
 		$('.fill_change').css('fill', 'white');
-
-		console.log('light');
 
 	}
 
@@ -253,13 +272,18 @@ function move(e){
 
 	$('.thumbnail').remove();
 
-	document.getElementById("thumbnail_gallery").innerHTML = "<a class='active_thumb thumbnail' style=\"background-image:url('" + slide_pulls[e].image1 + "')\"></a>"
+	var thumbParent = document.getElementById("thumbnail_gallery");
+
+	thumbParent.innerHTML = "<a class='active_thumb thumbnail' style=\"background-image:url('" + slide_pulls[e].image1 + "')\"></a>"
+
+	var thumbsBeta = '';
 
 	for (var t = 0; t < slide_pulls[e].thumbs.length; t++){
 
-		document.getElementById("thumbnail_gallery").innerHTML += "<a class='thumbnail' style=\"background-image:url('" + slide_pulls[e].thumbs[t] + "')\"></a>"
-
+		thumbsBeta += "<a class='thumbnail' style=\"background-image:url('" + slide_pulls[e].thumbs[t] + "')\"></a>"
 	}
+
+	thumbParent.innerHTML += thumbsBeta;
 
 //THUMBNAIL GALLERY
 
@@ -302,6 +326,10 @@ $('#slides').on("click", function (){
 }
 
 $(document).keydown(function(e) {
+
+	clearInterval(slideshow);
+	goSlide();
+
     switch (e.which) {
         case 37:
             e.preventDefault(), trans_slide(-1);
@@ -315,14 +343,20 @@ $(document).keydown(function(e) {
     }
 });
 
-	var slideshow = window.setInterval(function(){
+//HASH CHANGE
 
-		if( !pause_slideshow ){
+	if(window.location.hash){
 
-			trans_slide(1);
-		}
+	  var getHash = window.location.hash;
+	  var removeHash = getHash.replace('#', '');
+	  
+	  move(removeHash);
+	  explode();
 
-	}, 4000);
+	  history.replaceState(null, null, ' ');
+
+	}
+
 
 //CONTACT
 
@@ -345,6 +379,8 @@ var markerIcon = L.icon({
 	iconSize: [38, 95],
 	iconAnchor: [0,5]
 });
+
+// L.marker([46.06362892338259, -118.36210206931129], {icon: markerIcon}).addTo(map);
 
 var locations = [
   ["Main Campus", 46.06362892338259, -118.36210206931129],

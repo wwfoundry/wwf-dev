@@ -10,7 +10,8 @@ var slide_pulls = [
 		artist:'Yayoi Kusama',
 		work:'Dancing Pumpkin',
 		year:'2021',
-		material:'Bronze'
+		material:'Bronze',
+		tag:['Tag1']
 
 	},
 
@@ -24,7 +25,8 @@ var slide_pulls = [
 		artist:'Takashi Murakami',
 		work:'Flower Parent & Child',
 		year:'2020',
-		material:'Gilded Bronze'
+		material:'Gilded Bronze',
+		tag:['Tag4']
 
 	},
 
@@ -38,7 +40,8 @@ var slide_pulls = [
 		artist:'Mark Bradford',
 		work:'Mithra',
 		year:'2019',
-		material:'Material'
+		material:'Material',
+		tag:['Tag2', 'Tag3']
 
 	},
 
@@ -52,7 +55,8 @@ var slide_pulls = [
 		artist:'Wangechi Mutu',
 		work:'The NewOnes, will free Us',
 		year:'2019',
-		material:'Bronze'
+		material:'Bronze',
+		tag:['Tag3', 'Tag4']
 
 	},
 
@@ -66,7 +70,8 @@ var slide_pulls = [
 		artist:'Rodney Graham',
 		work:'Torqued Chandelier',
 		year:'2019',
-		material:'Steel, Resin'
+		material:'Steel, Resin',
+		tag:['Tag1', 'Tag3']
 
 	},
 
@@ -80,7 +85,8 @@ var slide_pulls = [
 		artist:'Matthew Barney',
 		work:'Virgins and Diana',
 		year:'2018',
-		material:'Bronze'
+		material:'Bronze',
+		tag:['Tag1', 'Tag2', ]
 
 	},
 
@@ -94,7 +100,8 @@ var slide_pulls = [
 		artist:'Paul McCarthy',
 		work:'Cut UP',
 		year:'2015 - 2017',
-		material:'Resin'
+		material:'Resin',
+		tag:['Tag3', 'Tag4']
 
 	},
 

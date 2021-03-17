@@ -80,6 +80,10 @@ header{
 	transition: fill ease-in-out .5s;
 }
 
+.blackFill{
+	fill:black!important;
+}
+
 /****page content****/
 
 #content{
@@ -112,7 +116,7 @@ header{
 	right:0;
 	width:100%;
 	height:100%;
-	background-image:linear-gradient(to bottom, rgba(0, 0, 0, .4), transparent 10%);
+	/*background-image:linear-gradient(to bottom, rgba(0, 0, 0, .4), transparent 10%);*/
 }
 
 #content.reduced #slide_wrapper:before{
@@ -384,10 +388,17 @@ margin-top:0;
 	cursor:pointer;
 }
 
-.thumbnail{
+div> .thumbnail{
 	width:calc(50% - 10px);
 	height:100px;
 	margin:5px;
+}
+
+.thumbnail{
+	width:100%;
+	height:100%;
+	display:block;
+	object-fit: cover;
 	background-size:cover;
 	background-position:center;
 	transition: box-shadow .25s ease-in-out;
@@ -395,4 +406,14 @@ margin-top:0;
 
 .active_thumb{
 	box-shadow: 0px 0px 4px 0px rgb(0 0 0 / 40%);
+}
+
+/***Mobile***/
+
+@media screen and (max-width:900px){
+
+	#menu_side{
+	width:calc(100% - 25px)!important;
+	}
+
 }

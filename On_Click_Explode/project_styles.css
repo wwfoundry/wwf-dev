@@ -468,7 +468,7 @@ textarea{
 }
 
 .filter{
-	display:flex;
+	display:none;
 	flex-direction:column;
 	padding-bottom:5px;
 	padding-right:10px;
@@ -494,3 +494,29 @@ textarea{
 	flex-direction:row;
 	flex-wrap:wrap;
 }
+
+/**Filters**/
+
+.filtered{
+	display:flex;
+}
+
+/**Filter Menu**/
+
+#filters_menu{
+	display:flex;
+	flex-direction:row;
+	list-style: none;
+	padding-inline-start: 0px;
+}
+
+.tagFilter{
+	list-style: none;
+	padding-right:10px;
+	cursor:pointer;
+}
+
+.tagFilter .last{
+	padding-right:none;
+}
+
