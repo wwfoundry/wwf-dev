@@ -165,34 +165,41 @@ header{
 }
 
 .slide{
-	background-size:cover;
+	background-size:contain;
 	background-position: center;
 	background-repeat:no-repeat;
 	object-fit: cover;
-	width:0%;
+	left:0;
+	right:0;
+	width:100%;
 	height:100%;
-	transition: width ease-in-out 1s;
+	transition: margin, opacity ease-in-out 1s;
 	position:absolute;
+	opacity:0;
 }
 
 .current{
 	top:0;
+	left:0;
 	right:0;
 	bottom:0;
+	margin-left:0;
+	margin-right:0;
 	width:100%;
 	height:100%;
+	opacity:1;
 }
 
 .next, .prev{
-	width:0%;
+	
 }
 
 .next{
-	right:0;
+	margin-right:-100%;
 }
 
 .prev{
-	left:0;
+	margin-left:-100%;
 }
 
 #info_wrapper{

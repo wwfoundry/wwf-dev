@@ -1,8 +1,8 @@
 var slide_pulls = [
 
 	{
-		image1:'Photos/Dancing_Pumpkin/5146.1_5MDancing_Pumpkin_ProcessPhotos_044.jpg',
-		thumbs:['Photos/Dancing_Pumpkin/WWF_Armature_005.jpeg', 'Photos/Dancing_Pumpkin/WWF_Armature_005.jpeg'],
+		image1:'Photos/Dancing_Pumpkin/priority.jpeg',
+		thumbs:['Photos/Dancing_Pumpkin/metal.jpg', 'Photos/Dancing_Pumpkin/WWF_Armature_005.jpeg'],
 		color:'1',
 		id:'dancing_pumpkin',
 		header:'Production Stage',
@@ -16,8 +16,8 @@ var slide_pulls = [
 	},
 
 	{
-		image1:'Photos/FPC/5158.1_10M_FP&C_ProcessPhoto_008.JPG',
-		thumbs: ['Photos/FPC/WWF_Armature_002.jpeg','Photos/FPC/5158.1_10M_FP&C_ProcessPhoto_008.JPG'],
+		image1:'Photos/FPC/Flower_Parent_and_Child_01.jpg',
+		thumbs: ['Photos/FPC/5158.1_10M_FP&C_ProcessPhoto_008.JPG', 'Photos/FPC/WWF_Armature_002.jpeg'],
 		color:'1',
 		id:'FPC',
 		header:'Production Stage',
@@ -31,16 +31,16 @@ var slide_pulls = [
 	},
 
 	{
-		image1:'Photos/Mithra/5127.1_Mithra_Process_42.jpg',
-		thumbs:['Photos/Mithra/5127.1_Final_Photos_01.jpg', 'Photos/Mithra/5127.1_Final_Photos_01.jpg'],
-		color:'1',
+		image1:'Photos/Mithra/5127.1_Final_Photos_01.jpg',
+		thumbs:['Photos/Mithra/5127.1_Mithra_Process_85.jpg', 'Photos/Mithra/5127.1_Mithra_Process_42.jpg'],
+		color:'0',
 		id:'Mithra',
 		header:'Production Stage',
 		description:'Phasellus tristique lorem elit, vitae tincidunt dui rhoncus sit amet. Quisque scelerisque urna nisi, nec dapibus urna bibendum in. Sed urna diam, posuere porta suscipit quis, malesuada et magna. Sed molestie libero vitae dui condimentum ultrices.',
 		artist:'Mark Bradford',
 		work:'Mithra',
 		year:'2019',
-		material:'Material',
+		material:'Plywood, Mild Steel',
 		tag:['Tag2', 'Tag3']
 
 	},

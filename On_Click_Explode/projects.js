@@ -35,7 +35,13 @@ var tagArray = [];
 
     $('#filters_menu li:last').addClass("last");
 
- $('.tagFilter').click(function(){ 
+ $('.tagFilter').click(function(){
+
+ 	var current = $(this);
+
+ 	$(this).css('borderBottom', '1px solid');
+
+ 	$('.tagFilter').not(current).css('borderBottom', 'unset');
 
   var tagName = $(this).prop('id');
 
@@ -51,27 +57,12 @@ var tagArray = [];
 
 	    $('.filter').not('.'+tagName).removeClass("filtered");
 
+	   var years = $('.filter').not('.'+tagName).parents("year_grouping").addClass('HELLO');
+	   console.log(years)
+
 	  }
 
   });
-
-  $('.work_year').each( 
-
-	function(){
-		
-		var subThumbs = $(this).next().find('filter');
-
-		console.log(subThumbs);
-
-		if ( !(subThumbs.hasClass('filtered')) ){
-
-			$(this).css('display', 'none');
-
-		}
-
-	}
-
-)
 
 });
 

@@ -506,17 +506,19 @@ textarea{
 #filters_menu{
 	display:flex;
 	flex-direction:row;
+	justify-content: flex-end;
 	list-style: none;
 	padding-inline-start: 0px;
 }
 
 .tagFilter{
 	list-style: none;
-	padding-right:10px;
+	margin-right:10px;
 	cursor:pointer;
+	font-size:1em;
 }
 
 .tagFilter .last{
-	padding-right:none;
+	margin-right:none;
 }
 
