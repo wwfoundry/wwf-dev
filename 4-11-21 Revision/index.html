@@ -19,13 +19,18 @@
 	<div id="side_menu_wrapper">
 		<div id="menu_side">
 			<ul id="menu_inner">
-				<a href="#test" id="xit">
+				<button id="xit">
 					<img src="xit.svg">
-				</a>
+				</button>
 				<div id="menu_links">
 						<li class="slide_menu_item">
 							<a href="projects.html">
 								Projects
+							</a>
+						</li>
+						<li class="slide_menu_item">
+							<a href="about.html">
+								About
 							</a>
 						</li>
 						<li class="slide_menu_item">
@@ -121,7 +126,7 @@
 </svg>
 		<div id="menu">
 			<div id="controls">
-				<a id="slides" class="menu_item">
+				<!-- <button id="slides" class="menu_item">
 					<svg version="1.1" id="slide_reveal" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 						 viewBox="0 0 150 80.17" style="enable-background:new 0 0 150 80.17;" xml:space="preserve" class="menu_item icon" >
 					<rect x="51.06" y="8.24" width="95.59" height="62.96"/>
@@ -129,8 +134,8 @@
 					<rect x="29.43" y="5.18" width="95.59" height="69.81"/>
 					<rect x="3.75" y="4.05" width="103.22" height="72.08"/>
 					</svg>
-				</a>
-				<a id="hamburger" class="menu_item last">
+				</button> -->
+				<button id="hamburger" class="menu_item last">
 					<svg version="1.1" id="ham_svg" class="fill_change" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
 
@@ -146,16 +151,33 @@ viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="pres
 						</g>
 					</g>
 					</svg>
-				</a>
+				</button>
 			</div>
 		</div>
 	</header>
-	<div id="content">
-		<div id="preview_slide_wrapper">
-			<video id="entry_slide" autoplay loop>
+	<div id="preview_slide_wrapper">
+			<div id="preview_slide_wrapper_phantom">
+			</div>
+			<video id="video" autoPlay muted loop preload="none">
 				<source src="Photos/Main_Slide/C0024.MP4" type="video/mp4">
 			</video>
+			<!-- <script>
+				document.getElementById("video").play();
+			</script> -->
+			<div id="explore">
+				<button id="explore_tag" class="arrow menu_item icon">
+					<svg version="1.1" class=" menu_item" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+						 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+					<style type="text/css">
+						.st0{fill:none;}
+					</style>
+					<line class="st0" x1="73.02" y1="4.01" x2="26.98" y2="50.04"/>
+					<line class="st0" x1="73.02" y1="95.99" x2="26.98" y2="49.96"/>
+					</svg>
+				</button>
+			</div>
 		</div>
+	<div id="content">
 		<div id="slide_wrapper">
 			<div class="corner" id="corner_1">
 				<img src="corner.svg">
