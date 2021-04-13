@@ -32,7 +32,7 @@ var slide_pulls = [
 
 	{
 		image1:'Photos/Mithra/5127.1_Final_Photos_01.jpg',
-		thumbs:['Photos/Mithra/5127.1_Mithra_Process_085.jpg', 'Photos/Mithra/5127.1_Mithra_Process_42.jpg'],
+		thumbs:['Photos/Mithra/5127.1_Mithra_Process_85.jpg', 'Photos/Mithra/5127.1_Mithra_Process_42.jpg'],
 		color:'0',
 		id:'Mithra',
 		header:'Production Stage',

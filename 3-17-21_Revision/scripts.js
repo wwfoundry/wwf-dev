@@ -258,12 +258,6 @@ function move(e){
 
 	slide.not( slide.eq(e + 1) ).removeClass('next');
 
-	$('.current').css('transform', 'translate(0px)');
-
-	$('.prev').css('transform', 'translate(' + -containerWidth + ')');
-
-	$('.next').css('transform', 'translate(' + containerWidth + ')');
-
 	//Logo Contrast
 
 	// if (color[e] === '0'){

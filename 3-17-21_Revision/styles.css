@@ -173,6 +173,7 @@ header{
 	width:0%;
 	height:100%;
 	opacity:0;
+	left:-100vw;
 	transition:width ease-in-out 1s;
 }
 
@@ -194,13 +195,13 @@ header{
 .next{
 	width:0;
 	height:100%;
-	right:0;
+	right:100vw;
 }
 
 .prev{
 	width:0;
 	height:100%;
-	left:0;
+	left:-100vw;
 }
 
 #info_wrapper{
